@@ -1,8 +1,12 @@
 @import 'foundation-sites';
 
 $bg: #eee;
-$uni-primary: #002855;
-$uni-secondary: #daaa00;
+
+* {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+  -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
+  outline: none !important;
+}
 
 html, body {
   background: $bg;
@@ -29,16 +33,17 @@ html, body {
   }
 
   .active {
-    color: $uni-primary;
+    color: $primary-color;
 
     p {
-      border-bottom: 3px solid $uni-primary;
+      border-bottom: 3px solid $primary-color;
     }
   }
 }
 
 #content {
   background: $bg;
+  display: none;
 
   p {
     margin: 0;
@@ -58,4 +63,21 @@ html, body {
       margin: 5px 0px;
     }
   }
+}
+
+#explore {
+  display: none;
+}
+
+#schedule {
+  display: none;
+}
+
+#login-page {
+  height: 50vh;
+  align-items: center;
+}
+
+#submitButton {
+  color: $white;
 }

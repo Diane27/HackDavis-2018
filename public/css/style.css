@@ -1271,7 +1271,7 @@ ul.no-bullet, ol.no-bullet {
   padding: 0.85em 1em;
   -webkit-appearance: none;
   border: 1px solid transparent;
-  border-radius: 0;
+  border-radius: 50px;
   transition: background-color 0.25s ease-out, color 0.25s ease-out;
   font-size: 0.9rem;
   line-height: 1;
@@ -3837,6 +3837,11 @@ a.thumbnail {
 .clearfix::after {
   clear: both; }
 
+* {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+  -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
+  outline: none !important; }
+
 html, body {
   background: #eee;
   height: 100%;
@@ -3855,12 +3860,13 @@ html, body {
   #nav a {
     color: #0a0a0a; }
   #nav .active {
-    color: #002855; }
+    color: #1779ba; }
     #nav .active p {
-      border-bottom: 3px solid #002855; }
+      border-bottom: 3px solid #1779ba; }
 
 #content {
-  background: #eee; }
+  background: #eee;
+  display: none; }
   #content p {
     margin: 0; }
   #content .info-card {
@@ -3872,3 +3878,16 @@ html, body {
       font-weight: bold; }
     #content .info-card hr {
       margin: 5px 0px; }
+
+#explore {
+  display: none; }
+
+#schedule {
+  display: none; }
+
+#login-page {
+  height: 50vh;
+  align-items: center; }
+
+#submitButton {
+  color: #fefefe; }
