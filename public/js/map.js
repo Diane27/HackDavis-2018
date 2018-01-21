@@ -21,7 +21,8 @@ function initMap() {
   var pyrmont = {lat: 38.5382, lng: -121.7617};
   map = new google.maps.Map(document.getElementById('map'), {
     center: pyrmont,
-    zoom: 17
+    zoom: 17,
+    fullscreenControl: false
   });
 
   // Create the places service.
