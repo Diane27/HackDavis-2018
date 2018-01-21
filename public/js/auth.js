@@ -80,7 +80,7 @@ function renenderSchedule() {
     var li = document.createElement('li');
 
     var nextClass = getNextClass(userData.schedule);
-    li.innerHTML = nextClass ? `<button onclick="routeToBuilding('${nextClass.building}')" id="goToNextClass">Go to next class "${nextClass.name}"</button>` : 'No more classes today';
+    li.innerHTML = nextClass ? `<a href="#map" onclick="routeToBuilding('${nextClass.building}')" id="goToNextClass">Go to next class "${nextClass.name}"</a>` : 'No more classes today';
     classList.appendChild(li);
 
     for (var section of userData.schedule) {
