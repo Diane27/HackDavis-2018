@@ -26,12 +26,6 @@ function initMap() {
 
   // Create the places service.
   var service = new google.maps.places.PlacesService(map);
-  var getNextPage = null;
-  var moreButton = document.getElementById('more');
-  moreButton.onclick = function() {
-    moreButton.disabled = true;
-    if (getNextPage) getNextPage();
-  };
 
   // Perform a nearby search.
   service.nearbySearch(
