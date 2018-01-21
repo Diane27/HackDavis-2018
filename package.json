@@ -1,0 +1,22 @@
+{
+  "name": "hackdavis-2018",
+  "version": "0.1.0",
+  "description": "hackdavis 2018 project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diane27/HackDavis-2018.git"
+  },
+  "author": "dew-u-no-de-wey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Diane27/HackDavis-2018/issues"
+  },
+  "homepage": "https://github.com/Diane27/HackDavis-2018#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
