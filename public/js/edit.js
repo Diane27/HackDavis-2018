@@ -68,6 +68,7 @@ function fillClassEditForm(id) {
     }
 
     fillFormContainer.removeAttr('hidden');
+    $('#editClassContainerA').click();
 }
 
 function fillFormToObj() {
