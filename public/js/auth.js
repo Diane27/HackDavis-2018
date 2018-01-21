@@ -3,27 +3,7 @@ var loginForm = document.getElementById('login-form');
 var userData;
 
 if (window.localStorage.getItem('loggedIn')) {
-  var classList = document.getElementById('class-list');
-  document.getElementById('login-page').setAttribute('hidden', 'hidden');
-  classList.removeAttribute('hidden');
-  userData = JSON.parse(window.localStorage.getItem('userData'));
-  var li = document.createElement('li');
-
-  var nextClass = getNextClass(userData.schedule);
-  li.innerHTML = nextClass ? `<button onclick="routeToBuilding('${nextClass.building}')" id="goToNextClass">Go to next class "${nextClass.name}"</button>` : 'No more classes today';
-  classList.appendChild(li);
-
-  for (var section of userData.schedule) {
-    li = document.createElement('li');
-    li.textContent =
-      section.name +
-      ' ' +
-      section.days
-        .map((day, i) => (day ? 'MTWRFSS'[i] : null))
-        .filter(day => day)
-        .join('');
-    classList.appendChild(li);
-  }
+    renenderSchedule();
 }
 
 loginButton.addEventListener('click', function(event) {
@@ -36,6 +16,7 @@ loginButton.addEventListener('click', function(event) {
     getUserData(username).done(function() {
       var data = JSON.parse(window.localStorage.getItem('userData'));
       console.log(getNextClass(data.schedule));
+      renenderSchedule();
     });
   });
 });
@@ -72,4 +53,43 @@ function getUserData(username) {
     .fail(function() {
       alert('wrong username or password');
     });
+}
+
+function logout() {
+    window.localStorage.removeItem("loggedIn");
+    window.localStorage.removeItem("userData");
+    hideLogin(false);
+}
+
+function hideLogin(yes) {
+    if (yes) {
+        document.getElementById('class-list').removeAttribute('hidden');
+        document.getElementById('login-page').setAttribute('hidden', 'hidden');
+    } else {
+        document.getElementById('login-page').removeAttribute('hidden');
+        document.getElementById('class-list').setAttribute('hidden', 'hidden');
+    }
+}
+
+function renenderSchedule() {
+    var classList = document.getElementById('class-list');
+    hideLogin(true);
+    userData = JSON.parse(window.localStorage.getItem('userData'));
+    var li = document.createElement('li');
+  
+    var nextClass = getNextClass(userData.schedule);
+    li.innerHTML = nextClass ? `<button onclick="routeToBuilding('${nextClass.building}')" id="goToNextClass">Go to next class "${nextClass.name}"</button>` : 'No more classes today';
+    classList.appendChild(li);
+  
+    for (var section of userData.schedule) {
+      li = document.createElement('li');
+      li.textContent =
+        section.name +
+        ' ' +
+        section.days
+          .map((day, i) => (day ? 'MTWRFSS'[i] : null))
+          .filter(day => day)
+          .join('');
+      classList.appendChild(li);
+    }
 }
