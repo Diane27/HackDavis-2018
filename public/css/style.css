@@ -1271,7 +1271,7 @@ ul.no-bullet, ol.no-bullet {
   padding: 0.85em 1em;
   -webkit-appearance: none;
   border: 1px solid transparent;
-  border-radius: 0;
+  border-radius: 50px;
   transition: background-color 0.25s ease-out, color 0.25s ease-out;
   font-size: 0.9rem;
   line-height: 1;
@@ -3884,3 +3884,10 @@ html, body {
 
 #schedule {
   display: none; }
+
+#login-page {
+  height: 50vh;
+  align-items: center; }
+
+#submitButton {
+  color: #fefefe; }
