@@ -67,6 +67,10 @@ html, body {
     hr {
       margin: 5px 0px;
     }
+
+    ul {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -97,4 +101,21 @@ html, body {
 
 #goToNextClass:hover {
   background-color: lighten($bg, 10%);
+}
+
+#user-info {
+  color: $white;
+  padding: 0 1rem;
+
+  h3 {
+    margin: 0;
+  }
+
+  #user-welcome {
+    margin-top: 0.5rem;
+  }
+
+  .button {
+    color: $white;
+  }
 }

@@ -43,11 +43,20 @@
         </form>
       </div>
     </div>
-    <div class="info-card" id="classes" hidden>
-      <h4>CLASSES</h4>
-      <hr>
-      <ul id="class-list"></ul>
-      <button onclick="logout()" style="background-color: yellow;">log out</button>
+    <div id="logged-page" hidden>
+      <div id="user-info" class="row align-middle">
+        <div id="user-welcome" class="small-6 columns">
+          <h3>Welcome, <span id="user-name">Jack</span>!</h3>
+        </div>
+        <div id="logout-button" class="small-6 columns text-right">
+          <button class="small alert button" onclick="logout()">Logout</button>
+        </div>
+      </div>
+      <div class="info-card">
+        <h4>MY CLASSES</h4>
+        <hr>
+        <ul id="class-list"></ul>
+      </div>
     </div>
   </div>
   <br>

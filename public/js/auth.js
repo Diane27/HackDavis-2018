@@ -64,11 +64,11 @@ function logout() {
 
 function hideLogin(yes) {
     if (yes) {
-        document.getElementById('classes').removeAttribute('hidden');
+        document.getElementById('logged-page').removeAttribute('hidden');
         document.getElementById('login-page').setAttribute('hidden', 'hidden');
     } else {
         document.getElementById('login-page').removeAttribute('hidden');
-        document.getElementById('classes').setAttribute('hidden', 'hidden');
+        document.getElementById('logged-page').setAttribute('hidden', 'hidden');
     }
 }
 
@@ -77,11 +77,11 @@ function renenderSchedule() {
     hideLogin(true);
     userData = JSON.parse(window.localStorage.getItem('userData'));
     var li = document.createElement('li');
-  
+
     var nextClass = getNextClass(userData.schedule);
     li.innerHTML = nextClass ? `<button onclick="routeToBuilding('${nextClass.building}')" id="goToNextClass">Go to next class "${nextClass.name}"</button>` : 'No more classes today';
     classList.appendChild(li);
-  
+
     for (var section of userData.schedule) {
       li = document.createElement('li');
       li.textContent =

@@ -3881,6 +3881,8 @@ html, body {
       font-weight: bold; }
     #content .info-card hr {
       margin: 5px 0px; }
+    #content .info-card ul {
+      margin-bottom: 0; }
 
 #explore {
   display: none; }
@@ -3904,3 +3906,13 @@ html, body {
 
 #goToNextClass:hover {
   background-color: #004088; }
+
+#user-info {
+  color: #fff;
+  padding: 0 1rem; }
+  #user-info h3 {
+    margin: 0; }
+  #user-info #user-welcome {
+    margin-top: 0.5rem; }
+  #user-info .button {
+    color: #fff; }
