@@ -1,0 +1,36 @@
+{
+  "jack": {
+    "name": "Jack Knuckles",
+    "username": "jack",
+    "schedule": [
+      {
+        "name": "ECS 010",
+        "building": "Cruess Hall",
+        "start-time": "10:00",
+        "end-time": "10:50",
+        "days": [true, false, true, false, true, false, false]
+      },
+      {
+        "name": "ECS 020",
+        "building": "Olson Hall",
+        "start-time": "11:00",
+        "end-time": "11:50",
+        "days": [true, false, true, false, true, false, false]
+      },
+      {
+        "name": "ECS 120",
+        "building": "Haring Hall",
+        "start-time": "18:10",
+        "end-time": "19:00",
+        "days": [false, true, false, false, false, false, false]
+      },
+      {
+        "name": "ECS 120",
+        "building": "Wellman Hall",
+        "start-time": "10:30",
+        "end-time": "11:50",
+        "days": [false, false, false, true, false, false, false]
+      }
+    ]
+  }
+}
