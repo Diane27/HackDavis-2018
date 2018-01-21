@@ -3,7 +3,6 @@ var loginForm = document.getElementById('login-form');
 var userData;
 
 if (window.localStorage.getItem('loggedIn')) {
-  window.localStorage.removeItem('loggedIn');
     renenderSchedule();
 }
 
@@ -75,6 +74,7 @@ function hideLogin(yes) {
 
 function renenderSchedule() {
     var classList = document.getElementById('class-list');
+    classList.innerHTML = "";
     hideLogin(true);
     userData = JSON.parse(window.localStorage.getItem('userData'));
     var li = document.createElement('li');
