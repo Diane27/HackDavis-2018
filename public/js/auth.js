@@ -73,7 +73,7 @@ function hideLogin(yes) {
 }
 
 function renenderSchedule() {
-    var classList = document.getElementById('class-list');
+    var classList = document.getElementById('classList');
     classList.innerHTML = "";
     hideLogin(true);
     userData = JSON.parse(window.localStorage.getItem('userData'));
@@ -86,16 +86,12 @@ function renenderSchedule() {
     } else {
       $('#nextClass').html('No more classes today.');
     }
-    
+
     for (var section of userData.schedule) {
-      li = document.createElement('li');
-      li.textContent =
-        section.name +
-        ' ' +
-        section.days
-          .map((day, i) => (day ? 'MTWRFSS'[i] : null))
-          .filter(day => day)
-          .join('');
-      classList.appendChild(li);
+      tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + section.name + '</td>' +
+                     '<td>' + section.days.map((day, i) => (day ? 'MTWRFSS'[i] : null)).filter(day => day).join('') + '</td>' +
+                     '<td>' + section.building + '</td>';
+      classList.appendChild(tr);
     }
 }
