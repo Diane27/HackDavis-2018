@@ -6,8 +6,9 @@ var fillForm = $('#classEditForm')
 
 fillForm.submit(function (event) {
     event.preventDefault();
-
-    console.log(fillForm);
+    var schedule = fillFormToObj();
+    console.log(schedule);
+    modifyClass(schedule);
 })
 
 
@@ -34,7 +35,7 @@ function modifyClass(data) {
     var targetId = data.id;
     var userData = JSON.parse(window.localStorage.getItem('userData'));
     var classes = userData.schedule;
-    var index = classes.indexOf( function(e) { return e.id == targetId; });
+    var index = classes.findIndex( function(e) { return e.id == targetId; });
     classes[index] = data;
     
     window.localStorage.setItem('userData', JSON.stringify(userData));
