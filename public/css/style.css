@@ -3909,6 +3909,7 @@ html, body {
 
 #user-info {
   color: #fff;
+  margin-top: 0.25rem;
   padding: 0 1rem; }
   #user-info h3 {
     margin: 0; }
