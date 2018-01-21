@@ -3860,7 +3860,8 @@ html, body {
       border-bottom: 3px solid #002855; }
 
 #content {
-  background: #eee; }
+  background: #eee;
+  display: none; }
   #content p {
     margin: 0; }
   #content .info-card {

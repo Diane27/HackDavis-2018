@@ -5,6 +5,7 @@ var schedule = $('#schedule');
 var active = '';
 
 exploreButton.click(function () {
+  $('#content').show();
   if (active != 'explore') {
     // Set the nav bar.
     exploreButton.addClass('active');
@@ -18,6 +19,7 @@ exploreButton.click(function () {
 });
 
 scheduleButton.click(function () {
+  $('#content').show();
   if (active != 'schedule') {
     // Set the nav bar.
     exploreButton.removeClass('active');
