@@ -5,21 +5,30 @@
 <div id="map"></div>
 
 <div id="nav" class="row expanded text-center">
-  <a class="active small-6 columns">
+  <a id="exploreButton" href="#nav" class="small-6 columns">
     <i class="fas fa-map-marker-alt fa-lg"></i>
     <p>EXPLORE</p>
   </a>
-  <a class="small-6 columns">
+  <a id="scheduleButton" href="#nav" class="small-6 columns">
     <i class="fas fa-address-book fa-lg"></i>
     <p>SCHEDULE</p>
   </a>
 </div>
 
 <div id="content" class="row column">
-  <div class="info-card">
-    <h4>NEARBY</h4>
-    <hr>
-    <ul id="places"></ul>
+  <div id="explore">
+    <div class="info-card">
+      <h4>NEARBY</h4>
+      <hr>
+      <ul id="places"></ul>
+    </div>
+  </div>
+  <div id="schedule">
+    <div class="info-card">
+      <h4>SCHEDULE</h4>
+      <hr>
+      <p>A</p>
+    </div>
   </div>
   <br>
 </div>
