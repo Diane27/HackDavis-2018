@@ -76,6 +76,13 @@ function createMarkers(places) {
 
     var li = document.createElement('li');
     li.textContent = place.name;
+    $(li).click((function(place) {
+      return function(){ //works but not the best way --Jesse
+        map.setCenter(place.geometry.location);
+        console.log(place, map.getCenter());
+      };
+    })(place));
+
     placesList.appendChild(li);
 
     bounds.extend(place.geometry.location);
