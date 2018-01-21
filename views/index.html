@@ -5,20 +5,23 @@
 <div id="map"></div>
 
 <div id="nav" class="row expanded text-center">
-  <div class="small-6 columns">
+  <a class="active small-6 columns">
     <i class="fas fa-map-marker-alt fa-lg"></i>
     <p>EXPLORE</p>
-  </div>
-  <div class="small-6 columns">
+  </a>
+  <a class="small-6 columns">
     <i class="fas fa-address-book fa-lg"></i>
     <p>SCHEDULE</p>
-  </div>
+  </a>
 </div>
 
-<div class="row">
-  <div class="column">
-    <p>A</p>
+<div id="content" class="row column">
+  <div class="info-card">
+    <h4>NEARBY</h4>
+    <hr>
+    <ul id="places"></ul>
   </div>
+  <br>
 </div>
 
 <!-- Google Maps API -->

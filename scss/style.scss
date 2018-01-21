@@ -1,9 +1,11 @@
 @import 'foundation-sites';
 
+$bg: #eee;
 $uni-primary: #002855;
 $uni-secondary: #daaa00;
 
 html, body {
+  background: $bg;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -15,11 +17,15 @@ html, body {
 }
 
 #nav {
-  background: #eee;
+  background: $bg;
   height: 12.5vh;
 
   .columns {
     padding-top: 3vh;
+  }
+
+  a {
+    color: $black;
   }
 
   .active {
@@ -27,6 +33,29 @@ html, body {
 
     p {
       border-bottom: 3px solid $uni-primary;
+    }
+  }
+}
+
+#content {
+  background: $bg;
+
+  p {
+    margin: 0;
+  }
+
+  .info-card {
+    background: $white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    padding: 15px;
+    width: 100%;
+
+    h4 {
+      font-weight: bold;
+    }
+
+    hr {
+      margin: 5px 0px;
     }
   }
 }
