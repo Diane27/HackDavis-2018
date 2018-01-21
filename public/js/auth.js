@@ -31,7 +31,7 @@ function auth(username, password) {
     }
   })
     .done(function(response) {
-      window.localStorage.setItem('loggedIn', response.data.loggedIn);
+      window.localStorage.setItem('loggedIn', response.data.loggedIn == 'true');
     })
     .fail(function() {
       window.localStorage.setItem('loggedIn', false);
