@@ -3,6 +3,7 @@ var loginForm = document.getElementById('login-form');
 var userData;
 
 if (window.localStorage.getItem('loggedIn')) {
+  window.localStorage.removeItem('loggedIn');
     renenderSchedule();
 }
 
@@ -17,7 +18,6 @@ loginButton.addEventListener('click', function(event) {
       var data = JSON.parse(window.localStorage.getItem('userData'));
       console.log(getNextClass(data.schedule));
       renenderSchedule();
-      scrollDown();
     });
   });
 });

@@ -129,3 +129,22 @@ html, body {
   padding: 10px;
   text-align: center;
 }
+
+#classEditForm {
+  border: 1px solid $bg;
+  .dayLabels {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .classDayLabel {
+    display: inline-block;
+    flex-grow: 1;
+    text-align: center;
+
+    input {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
