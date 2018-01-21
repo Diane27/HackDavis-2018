@@ -33,11 +33,11 @@
         <form action="/login" method="post" id="login-form">
           <div class="input-group">
             <span class="input-group-label"><i class="fas fa-user"></i></span>
-            <input id="nameBox" class="input-group-field" type="text" required>
+            <input name="username" id="nameBox" class="input-group-field" type="text" required>
           </div>
           <div class="input-group">
             <span class="input-group-label"><i class="fas fa-key"></i></span>
-            <input id="passBox" class="input-group-field" type="password" required>
+            <input name="password" id="passBox" class="input-group-field" type="password" required>
           </div>
           <button id="submitButton" class="success button" type="submit"><i class="fas fa-check"></i></button>
         </form>
@@ -51,8 +51,5 @@
   </div>
   <br>
 </div>
-
-<!-- Google Maps API -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwQwhDwtBQxmyThKoI78uTkdM86yyro20&libraries=places&callback=initMap" async defer></script>
 
 {% endblock %}

@@ -1,0 +1,38 @@
+var DEBUG = true;
+
+// call getUserData(username) from auth.js before using code from this page
+
+function getClassesForToday(username) {
+    var result = [];
+    var data = JSON.parse(window.localStorage.getItem('userData')).data;
+    var classes = data.schedule;
+    var d = new Date();
+    var day = DEBUG ? 0 : (d.getDay() + 6) % 7;
+    for (var i = 0; i < classes.length; ++i) {
+        if (classes[i].days[day]) {
+            result.push(classes[i]);
+        }
+    }
+    return result;
+}
+
+function getNextClass(username) {
+    var classes = getClassesForToday(username);
+    var d = new Date(); 
+    var currTime = d.getHours() * 60 + d.getMinutes(); // current time of the day in minutes
+
+    var nextClass = null;
+    for (var i = 0; i < classes.length; ++i) {
+        var timeStr = classes[i]['start-time'].split(':');
+        var time = parseInt(timeStr[0]) * 60 + parseInt(timeStr[1]);
+
+        if (currTime > time) {
+            break;
+        }
+    }
+    if (classes.length > 0) {
+        nextClass = nextClass ? nextClass : classes[0];
+    }
+    
+    return nextClass;
+}
