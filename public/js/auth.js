@@ -3,6 +3,7 @@ var loginForm = document.getElementById('login-form');
 var userData;
 
 if (window.localStorage.getItem('loggedIn')) {
+  window.localStorage.removeItem('loggedIn');
     renenderSchedule();
 }
 
