@@ -57,6 +57,21 @@
         <h4>MY CLASSES</h4>
         <hr>
         <ul id="class-list"></ul>
+        <form id="classEditForm" hidden>
+          <label>Class name: <input type="text" name="name"></label>
+          <label>Building: <input type="text" name="building"></label>
+          <label>Start Time: <input type="text" name="startTime"></label>
+          <label>End Time: <input type="text" name="endTime"></label>
+          <span class="dayLabels">
+            <label class="classDayLabel">Mon<input type="checkbox" name="monday"></label>
+            <label class="classDayLabel">Tue<input type="checkbox" name="tuesday"></label>
+            <label class="classDayLabel">Wed<input type="checkbox" name="wednesday"></label>
+            <label class="classDayLabel">Thu<input type="checkbox" name="thursday"></label>
+            <label class="classDayLabel">Fri<input type="checkbox" name="friday"></label>
+            <label class="classDayLabel">Sat<input type="checkbox" name="satday"></label>
+          </span>
+          <button type="submit" id="saveClass">Save</button>
+        </form>
       </div>
     </div>
   </div>

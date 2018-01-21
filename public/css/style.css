@@ -3916,3 +3916,16 @@ html, body {
     margin: 0; }
   #user-info .button {
     color: #fff; }
+
+#classEditForm {
+  border: 1px solid #002855; }
+  #classEditForm .dayLabels {
+    display: flex;
+    flex-direction: row; }
+  #classEditForm .classDayLabel {
+    display: inline-block;
+    flex-grow: 1;
+    text-align: center; }
+    #classEditForm .classDayLabel input {
+      display: block;
+      margin: 0 auto; }
