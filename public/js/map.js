@@ -24,7 +24,10 @@ function initMap() {
     zoom: 17,
     minZoom: 15,
     maxZoom: 17,
-    fullscreenControl: false
+    fullscreenControl: false,
+    styles: [
+            {featureType: 'poi.school', elementType: 'geometry.fill', stylers: [{color: '#78be20'}]},
+            {featureType: 'landscape.man_made', elementType: 'geometry.fill', stylers: [{color: '#ECD47F'}]}]
   });
 
   // Create the places service.
