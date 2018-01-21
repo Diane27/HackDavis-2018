@@ -3,7 +3,7 @@ function updateClassList() {
 }
 
 
-function removeClass(targetId, day) {
+function removeClass(targetId, day=0) {
     // Set day to false
     // if all days are false, delete entry
     var id = data.id;
@@ -37,6 +37,7 @@ function modifyClass(data) {
 }
 
 function addClass(data) {
-    var data = JSON.parse(window.localStorage.getItem('userData'));
-    data.schedule.push(data);
+    var userData = JSON.parse(window.localStorage.getItem('userData'));
+    data['id'] = (new Date()).getTime();
+    userData.schedule.push(data);
 }
