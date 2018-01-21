@@ -3872,3 +3872,9 @@ html, body {
       font-weight: bold; }
     #content .info-card hr {
       margin: 5px 0px; }
+
+#explore {
+  display: none; }
+
+#schedule {
+  display: none; }
