@@ -6,7 +6,7 @@ function updateClassList() {
 function removeClass(targetId, day) {
     // Set day to false
     // if all days are false, delete entry
-    var id;
+    var id; // TODO
     var data = JSON.parse(window.localStorage.getItem('userData'));
     var classes = data.schedule;
     
@@ -27,7 +27,13 @@ function removeClass(targetId, day) {
 }
 
 function modifyClass(data) {
-
+    var targetId; // TODO
+    var data = JSON.parse(window.localStorage.getItem('userData'));
+    var classes = data.schedule;
+    var index = classes.indexOf( function(e) { return e.id == targetId; });
+    classes[index] = data;
+    
+    window.localStorage.setItem('userData', data);
 }
 
 function addClass(data) {
