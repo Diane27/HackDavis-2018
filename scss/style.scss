@@ -1,6 +1,7 @@
 @import 'foundation-sites';
 
-$bg: #eee;
+$bg: #002855;
+$accent: #daaa00;
 
 * {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
@@ -29,14 +30,14 @@ html, body {
   }
 
   a {
-    color: $black;
+    color: $white;
   }
 
   .active {
-    color: $primary-color;
+    color: $accent;
 
     p {
-      border-bottom: 3px solid $primary-color;
+      border-bottom: 3px solid $accent;
     }
   }
 }
@@ -74,6 +75,7 @@ html, body {
 }
 
 #login-page {
+  color: $white;
   height: 50vh;
   align-items: center;
 }
