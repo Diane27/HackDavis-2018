@@ -88,8 +88,11 @@ html, body {
   align-items: center;
 }
 
-#submitButton {
-  color: $white;
+[type='submit'] {
+  color: $white !important;
+  border-radius: $button-radius;
+  margin-bottom: 0;
+  margin-top: 1rem;
 }
 
 #goToNextClass {
@@ -131,7 +134,6 @@ html, body {
 }
 
 #classEditForm {
-  border: 1px solid $bg;
   .dayLabels {
     display: flex;
     flex-direction: row;
