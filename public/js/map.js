@@ -58,7 +58,7 @@ function createMarkers(places) {
   var bounds = new google.maps.LatLngBounds();
   var placesList = document.getElementById('places');
 
-  for (var i = 0, place; place = places[i]; i++) {
+  for (var i = 0, place; place = places[i], i < 10; i++) {
     var image = {
       url: place.icon,
       size: new google.maps.Size(71, 71),
