@@ -21,7 +21,7 @@ function removeClass(targetId, day=1) {
     // if all days are false, delete entry
     var data = JSON.parse(window.localStorage.getItem('userData'));
     var classes = data.schedule;
-    
+
     var i = 0;
     for (; i < classes.length; ++i) {
         if (classes[i].id == targetId) {

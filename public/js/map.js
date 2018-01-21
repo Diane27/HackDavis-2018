@@ -75,10 +75,10 @@ function createMarkers(places) {
     });
 
     var li = document.createElement('li');
-    li.textContent = place.name;
+    li.innerHTML = `<a href="#map">${place.name}</a>`;
     $(li).click((function(place) {
       return function(){ //works but not the best way --Jesse
-        map.setCenter(place.geometry.location);
+        routeToBuilding(place.geometry.location);
         console.log(place, map.getCenter());
       };
     })(place));
