@@ -1,16 +1,52 @@
-var express = require('express'),
-    app = express(),
-    path = require('path'),
-    server = require('http').Server(app),
-    port = 8080,
-    bodyParser = require('body-parser');
-require('dotenv-safe').load();
-port = port || process.env.PORT;
+const express = require('express');
+const app = express();
+const path = require('path');
+const bodyParser = require('body-parser');
+const logger = require('morgan');
+const nunjucks = require('nunjucks');
+const config = require('./config.js');
+const router = require('./routes');
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-var routes = require('./api/routes/routes.js');
-routes(app);
-app.use(express.static(__dirname + '/public'));
-server.listen(port);
+app.use(express.static(path.join(__dirname, '/public')));
 
-console.log("working on " + port);
+if (!config.production) {
+  app.use(logger('dev'));
+}
+
+// Set "./views" as the views folder
+nunjucks.configure(path.join(__dirname, 'views'), {
+  express: app,
+  noCache: !config.production
+});
+
+// Set default template extension to .html
+app.set('view engine', 'html');
+
+app.locals.css = ['/css/style.css'];
+app.locals.js = [];
+
+app.use(router);
+
+// catch 404 and forward to error handler
+app.use((req, res, next) => {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handler
+app.use((err, req, res, next) => {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = config.production ? {} : err;
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
+
+const server = app.listen(config.port, () => {
+  console.log(`=> working on http://${server.address().address}:${config.port}`);
+});
