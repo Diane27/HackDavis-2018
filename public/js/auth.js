@@ -89,13 +89,10 @@ function renenderSchedule() {
     
     for (var section of userData.schedule) {
       li = document.createElement('li');
-      li.textContent =
-        section.name +
-        ' ' +
-        section.days
+      li.innerHTML = `${section.name} ${section.days
           .map((day, i) => (day ? 'MTWRFSS'[i] : null))
           .filter(day => day)
-          .join('');
+          .join('')} <button class="classEditButton" onclick="fillClassEditForm(${section.id})">EDIT</button> <button onclick="alert(${section.id})">DELETE</button>`;
       classList.appendChild(li);
     }
 }
