@@ -25,7 +25,10 @@ nunjucks.configure(path.join(__dirname, 'views'), {
 app.set('view engine', 'html');
 
 app.locals.css = ['/css/style.css'];
-app.locals.js = ['/js/map.js', '/js/jquery.min.js'];
+app.locals.js = [ '/js/map.js', 
+                  '/js/jquery.min.js',
+                  '/js/dire.js',
+                  '/js/auth.js' ];
 
 app.use(router);
 
