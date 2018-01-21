@@ -3895,7 +3895,8 @@ html, body {
   height: 50vh;
   align-items: center; }
 
-[type='submit'] {
+[type='submit'],
+#classEditForm button {
   color: #fff !important;
   border-radius: 50px;
   margin-bottom: 0;

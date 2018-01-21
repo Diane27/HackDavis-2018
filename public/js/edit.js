@@ -3,6 +3,7 @@ function updateClassList() {
 }
 
 var fillForm = $('#classEditForm')
+var fillFormContainer = $('#editClassContainer')
 
 fillForm.submit(function (event) {
     event.preventDefault();
@@ -11,6 +12,9 @@ fillForm.submit(function (event) {
     modifyClass(schedule);
 })
 
+function cancelEdit() {
+    fillFormContainer.attr('hidden', 'hidden');
+}
 
 function removeClass(targetId, day=1) {
     // Set day to false
@@ -40,6 +44,7 @@ function modifyClass(data) {
     
     window.localStorage.setItem('userData', JSON.stringify(userData));
     updateClassList();
+    fillFormContainer.attr('hidden', 'hidden');
 }
 
 function addClass(data) {
@@ -62,7 +67,7 @@ function fillClassEditForm(id) {
         fillForm.find('.classDayLabel input').eq(i).prop('checked', classData.days[i]);
     }
 
-    fillForm.removeAttr('hidden');
+    fillFormContainer.removeAttr('hidden');
 }
 
 function fillFormToObj() {

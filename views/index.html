@@ -83,10 +83,10 @@
       </div>
       <br>
 
-      <div class="info-card">
+      <div class="info-card" id="editClassContainer" hidden>
         <h4>EDIT CLASS</h4>
         <hr>
-        <form id="classEditForm" hidden>
+        <form id="classEditForm">
           <input type="hidden" name="id">
           <label>Class name: <input type="text" name="name"></label>
           <label>Building: <input type="text" name="building"></label>
@@ -101,7 +101,7 @@
             <label class="classDayLabel">Sat<input type="checkbox" name="satday"></label>
           </span>
           <div class="row column text-center">
-            <button type="submit" id="saveClass" class="success button">Save</button>
+            <button type="submit" id="saveClass" class="success button">Save</button><button class="secondary button" onclick="cancelEdit">Cancel</button>
           </div>
         </form>
       </div>
