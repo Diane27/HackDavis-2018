@@ -3860,9 +3860,9 @@ html, body {
   #nav a {
     color: #0a0a0a; }
   #nav .active {
-    color: #002855; }
+    color: #1779ba; }
     #nav .active p {
-      border-bottom: 3px solid #002855; }
+      border-bottom: 3px solid #1779ba; }
 
 #content {
   background: #eee;
