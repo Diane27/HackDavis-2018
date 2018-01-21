@@ -22,6 +22,8 @@ function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: pyrmont,
     zoom: 17,
+    minZoom: 15,
+    maxZoom: 17,
     fullscreenControl: false
   });
 
