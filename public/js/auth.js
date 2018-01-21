@@ -17,6 +17,7 @@ loginButton.addEventListener('click', function(event) {
       var data = JSON.parse(window.localStorage.getItem('userData'));
       console.log(getNextClass(data.schedule));
       renenderSchedule();
+      scrollDown();
     });
   });
 });

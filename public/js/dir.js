@@ -35,6 +35,7 @@ function routeToBuilding(building) {
     directionsService.route(request, function(result, status) {
       if (status == 'OK') {
         directionsDisplay.setDirections(result);
+        scrollUp();
       } else {
         debugger;
       }
