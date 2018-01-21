@@ -3,10 +3,9 @@ function updateClassList() {
 }
 
 
-function removeClass(targetId, day=0) {
+function removeClass(targetId, day=1) {
     // Set day to false
     // if all days are false, delete entry
-    var id = data.id;
     var data = JSON.parse(window.localStorage.getItem('userData'));
     var classes = data.schedule;
     
@@ -16,14 +15,11 @@ function removeClass(targetId, day=0) {
             break;
         }
     }
+    
+    classes.splice(i, 1);
 
-    classes[i].days[day] = false;
-
-    if (c.days.every(function (e) { !e } )) {
-        classes.splice(i, 1);
-    }
-
-    window.localStorage.setItem('userData', data);
+    window.localStorage.setItem('userData', JSON.stringify(data));
+    updateClassList();
 }
 
 function modifyClass(data) {
@@ -33,13 +29,15 @@ function modifyClass(data) {
     var index = classes.indexOf( function(e) { return e.id == targetId; });
     classes[index] = data;
     
-    window.localStorage.setItem('userData', userData);
+    window.localStorage.setItem('userData', JSON.stringify(userData));
+    updateClassList();
 }
 
 function addClass(data) {
     var userData = JSON.parse(window.localStorage.getItem('userData'));
-    //data['id'] = (new Date()).getTime();
+    data['id'] = (new Date()).getTime();
     userData.schedule.push(data);
+    window.localStorage.setItem('userData', JSON.stringify(userData));
 }
 
 function fillClassEditForm(id) {
