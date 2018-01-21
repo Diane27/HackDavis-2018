@@ -68,7 +68,13 @@
         <h4>MY CLASSES</h4>
         <hr>
         <ul id="class-list"></ul>
-        <form id="classEditForm" hidden>
+      </div>
+      <br>
+
+      <div class="info-card">
+        <h4>EDIT CLASS</h4>
+        <hr>
+        <form id="classEditForm">
           <label>Class name: <input type="text" name="name"></label>
           <label>Building: <input type="text" name="building"></label>
           <label>Start Time: <input type="text" name="startTime"></label>
@@ -81,7 +87,9 @@
             <label class="classDayLabel">Fri<input type="checkbox" name="friday"></label>
             <label class="classDayLabel">Sat<input type="checkbox" name="satday"></label>
           </span>
-          <button type="submit" id="saveClass">Save</button>
+          <div class="row column text-center">
+            <button type="submit" id="saveClass" class="success button">Save</button>
+          </div>
         </form>
       </div>
     </div>

@@ -3895,8 +3895,11 @@ html, body {
   height: 50vh;
   align-items: center; }
 
-#submitButton {
-  color: #fff; }
+[type='submit'] {
+  color: #fff !important;
+  border-radius: 50px;
+  margin-bottom: 0;
+  margin-top: 1rem; }
 
 #goToNextClass {
   background-color: #002855;
@@ -3928,15 +3931,14 @@ html, body {
   padding: 10px;
   text-align: center; }
 
-#classEditForm {
-  border: 1px solid #002855; }
-  #classEditForm .dayLabels {
-    display: flex;
-    flex-direction: row; }
-  #classEditForm .classDayLabel {
-    display: inline-block;
-    flex-grow: 1;
-    text-align: center; }
-    #classEditForm .classDayLabel input {
-      display: block;
-      margin: 0 auto; }
+#classEditForm .dayLabels {
+  display: flex;
+  flex-direction: row; }
+
+#classEditForm .classDayLabel {
+  display: inline-block;
+  flex-grow: 1;
+  text-align: center; }
+  #classEditForm .classDayLabel input {
+    display: block;
+    margin: 0 auto; }
