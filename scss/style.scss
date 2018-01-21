@@ -1,5 +1,8 @@
 @import 'foundation-sites';
 
+$uni-primary: #002855;
+$uni-secondary: #daaa00;
+
 html, body {
   height: 100%;
   margin: 0;
@@ -7,5 +10,23 @@ html, body {
 }
 
 #map {
-  height: 100%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  height: 87.5vh;
+}
+
+#nav {
+  background: #eee;
+  height: 12.5vh;
+
+  .columns {
+    padding-top: 3vh;
+  }
+
+  .active {
+    color: $uni-primary;
+
+    p {
+      border-bottom: 3px solid $uni-primary;
+    }
+  }
 }
