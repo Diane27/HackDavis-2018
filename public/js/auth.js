@@ -91,7 +91,9 @@ function renenderSchedule() {
       tr = document.createElement('tr');
       tr.innerHTML = '<td>' + section.name + '</td>' +
                      '<td>' + section.days.map((day, i) => (day ? 'MTWRFSS'[i] : null)).filter(day => day).join('') + '</td>' +
-                     '<td>' + section.building + '</td>';
+                     '<td>' + section.building + '</td>' +
+                     `<td><button onclick="fillClassEditForm(${section.id})">EDIT</button></td>` +
+                     `<td><button onclick="alert('Delete: ' + ${section.id})">DELETE</button></td>`;
       classList.appendChild(tr);
     }
 }
