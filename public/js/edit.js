@@ -2,6 +2,14 @@ function updateClassList() {
     renenderSchedule();
 }
 
+var fillForm = $('#classEditForm')
+
+fillForm.submit(function (event) {
+    event.preventDefault();
+
+    console.log(fillForm);
+})
+
 
 function removeClass(targetId, day=0) {
     // Set day to false
@@ -44,7 +52,6 @@ function addClass(data) {
 
 function fillClassEditForm(id) {
     var classData = JSON.parse(window.localStorage.getItem('userData')).schedule.find(section => section.id == id);
-    var fillForm = $('#classEditForm');
 
     fillForm.find('[name="id"]').val(id);
     fillForm.find('[name="name"]').val(classData.name);
@@ -57,4 +64,15 @@ function fillClassEditForm(id) {
     }
 
     fillForm.removeAttr('hidden');
+}
+
+function fillFormToObj() {
+    return {
+        id: fillForm.find('[name="id"]').val(),
+        name: fillForm.find('[name="name"]').val(),
+        building: fillForm.find('[name="building"]').val(),
+        'start-time': fillForm.find('[name="startTime"]').val(),
+        'end-time': fillForm.find('[name="endTime"]').val(),
+        days: fillForm.find('.classDayLabel input').map((i, e) => e.checked).toArray()
+    };
 }
