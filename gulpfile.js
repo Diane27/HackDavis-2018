@@ -7,8 +7,8 @@ const sass = require('gulp-sass');
 /*
   Tasks
 */
-gulp.task('build', gulp.series(style));
-gulp.task('default', gulp.series('build', watch));
+gulp.task('build', style);
+gulp.task('default', ['build'], watch);
 
 /*
   Functions
@@ -22,5 +22,5 @@ function style() {
 }
 
 function watch() {
-  gulp.watch('./scss/**/*.scss').on('all', gulp.series(style));
+  gulp.watch('./scss/**/*.scss', style);
 }
