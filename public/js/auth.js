@@ -60,15 +60,16 @@ function logout() {
     window.localStorage.removeItem("loggedIn");
     window.localStorage.removeItem("userData");
     hideLogin(false);
+    document.getElementById('class-list').innerHTML = '';
 }
 
 function hideLogin(yes) {
     if (yes) {
-        document.getElementById('class-list').removeAttribute('hidden');
+        document.getElementById('classes').removeAttribute('hidden');
         document.getElementById('login-page').setAttribute('hidden', 'hidden');
     } else {
         document.getElementById('login-page').removeAttribute('hidden');
-        document.getElementById('class-list').setAttribute('hidden', 'hidden');
+        document.getElementById('classes').setAttribute('hidden', 'hidden');
     }
 }
 
