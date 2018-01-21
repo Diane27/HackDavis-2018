@@ -38,6 +38,23 @@ function modifyClass(data) {
 
 function addClass(data) {
     var userData = JSON.parse(window.localStorage.getItem('userData'));
-    data['id'] = (new Date()).getTime();
+    //data['id'] = (new Date()).getTime();
     userData.schedule.push(data);
+}
+
+function fillClassEditForm(id) {
+    var classData = JSON.parse(window.localStorage.getItem('userData')).schedule.find(section => section.id == id);
+    var fillForm = $('#classEditForm');
+
+    fillForm.find('[name="id"]').val(id);
+    fillForm.find('[name="name"]').val(classData.name);
+    fillForm.find('[name="building"]').val(classData.building);
+    fillForm.find('[name="startTime"]').val(classData['start-time']);
+    fillForm.find('[name="endTime"]').val(classData['end-time']);
+
+    for (var i = 0; i < classData.days.length; i++) {
+        fillForm.find('.classDayLabel input').eq(i).prop('checked', classData.days[i]);
+    }
+
+    fillForm.removeAttr('hidden');
 }
