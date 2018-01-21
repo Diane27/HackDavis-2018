@@ -32,6 +32,7 @@ app.locals.js = [
   '/js/smoothScrolling.js',
   '/js/dir.js',
   '/js/auth.js',
+  '/js/edit.js',
   'https://maps.googleapis.com/maps/api/js?key=AIzaSyDwQwhDwtBQxmyThKoI78uTkdM86yyro20&libraries=places&callback=initMap'
 ];
 
