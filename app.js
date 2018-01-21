@@ -25,7 +25,7 @@ nunjucks.configure(path.join(__dirname, 'views'), {
 app.set('view engine', 'html');
 
 app.locals.css = ['/css/style.css'];
-app.locals.js = ['https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', '/js/map.js', '/js/nav.js', '/js/smoothScrolling.js'];
+app.locals.js = ['https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', '/js/map.js', '/js/nav.js', '/js/smoothScrolling.js', '/js/auth.js'];
 
 app.use(router);
 

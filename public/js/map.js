@@ -40,10 +40,10 @@ function initMap() {
         if (status !== 'OK') return;
 
         createMarkers(results);
-        moreButton.disabled = !pagination.hasNextPage;
-        getNextPage = pagination.hasNextPage && function() {
-          pagination.nextPage();
-        };
+        // moreButton.disabled = !pagination.hasNextPage;
+        // getNextPage = pagination.hasNextPage && function() {
+          // pagination.nextPage();
+        // };
       });
 }
 
