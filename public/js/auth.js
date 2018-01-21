@@ -1,5 +1,30 @@
 var loginButton = document.getElementById('submitButton');
 var loginForm = document.getElementById('login-form');
+var userData;
+
+if (window.localStorage.getItem('loggedIn')) {
+  var classList = document.getElementById('class-list');
+  document.getElementById('login-page').setAttribute('hidden', 'hidden');
+  classList.removeAttribute('hidden');
+  userData = JSON.parse(window.localStorage.getItem('userData'));
+  var li = document.createElement('li');
+
+  var nextClass = getNextClass(userData.schedule);
+  li.innerHTML = nextClass ? `<button onclick="routeToBuilding('${nextClass.building}')" id="goToNextClass">Go to next class "${nextClass.name}"</button>` : 'No more classes today';
+  classList.appendChild(li);
+
+  for (var section of userData.schedule) {
+    li = document.createElement('li');
+    li.textContent =
+      section.name +
+      ' ' +
+      section.days
+        .map((day, i) => (day ? 'MTWRFSS'[i] : null))
+        .filter(day => day)
+        .join('');
+    classList.appendChild(li);
+  }
+}
 
 loginButton.addEventListener('click', function(event) {
   event.preventDefault();
@@ -9,7 +34,8 @@ loginButton.addEventListener('click', function(event) {
   auth(username, password).done(function() {
     console.log('Auth success');
     getUserData(username).done(function() {
-      console.log(window.localStorage.getItem('userData'));
+      var data = JSON.parse(window.localStorage.getItem('userData'));
+      console.log(getNextClass(data.schedule));
     });
   });
 });

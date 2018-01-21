@@ -1,13 +1,13 @@
-function getLocation() {
+function getLocation(cb) {
   if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
+      navigator.geolocation.getCurrentPosition(cb);
   } else {
-      x.innerHTML = "Geolocation is not supported by this browser.";
+      alert("Geolocation is not supported by this browser.");
   }
 }
 function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude; 
+  console.log("Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude);
 }
 // This example requires the Places library. Include the libraries=places
 // parameter when you first load the API. For example:
@@ -15,6 +15,8 @@ function showPosition(position) {
 
 
 var map;
+var directionsService;
+var directionsDisplay;
 
 function initMap() {
   // Create the map.
@@ -45,6 +47,11 @@ function initMap() {
           // pagination.nextPage();
         // };
       });
+
+      // Create the directions service
+      directionsService = new google.maps.DirectionsService();
+      directionsDisplay = new google.maps.DirectionsRenderer();
+      directionsDisplay.setMap(map);
 }
 
 function createMarkers(places) {

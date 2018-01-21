@@ -16,6 +16,10 @@ html, body {
   padding: 0;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 #map {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   height: 87.5vh;
@@ -82,4 +86,15 @@ html, body {
 
 #submitButton {
   color: $white;
+}
+
+#goToNextClass {
+  background-color: $bg;
+  color: $accent;
+  padding: 0.33em 0.5em;
+  border-radius: 3px;
+}
+
+#goToNextClass:hover {
+  background-color: lighten($bg, 10%);
 }
