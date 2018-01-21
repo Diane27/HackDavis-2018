@@ -1,5 +1,5 @@
 function updateClassList() {
-
+    renenderSchedule();
 }
 
 
@@ -37,5 +37,6 @@ function modifyClass(data) {
 }
 
 function addClass(data) {
-
+    var data = JSON.parse(window.localStorage.getItem('userData'));
+    data.schedule.push(data);
 }
