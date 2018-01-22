@@ -1,4 +1,4 @@
-var DEBUG = true;
+var DEBUG = false;
 
 function getNextClass(schedule) {
   var d = DEBUG ? new Date('Mon Jan 22 2018 08:30:23 GMT-0800 (PST)') : new Date();
@@ -22,13 +22,11 @@ function getNextClass(schedule) {
 }
 
 function routeToBuilding(building) {
-  getLocation(function showPosition(position) {
-    console.log('Latitude: ' + position.coords.latitude + '\nLongitude: ' + position.coords.latitude);
-
+  getLocation(function(position) {
     var request = {
       origin: DEBUG
-        ? new google.maps.LatLng(38.541687, -121.759801)
-        : new google.maps.LatLng(position.coords.latitude, position.coords.latitude),
+        ? new google.maps.LatLng(38.541687, -121.759801) // UC Davis Arc Pavillion
+        : new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
       destination: building,
       travelMode: 'WALKING'
     };
@@ -36,7 +34,7 @@ function routeToBuilding(building) {
       if (status == 'OK') {
         directionsDisplay.setDirections(result);
       } else {
-        debugger;
+        alert(`Could not find route to building "${building}"`);
       }
     });
   });
