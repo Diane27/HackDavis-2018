@@ -25,7 +25,7 @@ function routeToBuilding(building) {
   getLocation(function(position) {
     var request = {
       origin: DEBUG
-        ? new google.maps.LatLng(38.541687, -121.759801) // UC Davis Arc Pavillion
+        ? new google.maps.LatLng(37.969048, -122.070668) // DVC
         : new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
       destination: building,
       travelMode: 'WALKING'
