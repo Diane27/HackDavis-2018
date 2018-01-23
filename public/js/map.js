@@ -16,6 +16,7 @@ function showPosition(position) {
 // parameter when you first load the API. For example:
 // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
+var DEBUG = true;
 var map;
 var directionsService;
 var directionsDisplay;
@@ -24,7 +25,9 @@ function initMap() {
   // Create the map after getting current location
 
   getLocation(function(position) {
-    var pyrmont = { lat: position.coords.latitude, lng: position.coords.longitude };
+    var pyrmont = DEBUG
+      ? { lat: 38.541687, lng: -121.759801 }
+      : { lat: position.coords.latitude, lng: position.coords.longitude };
     map = new google.maps.Map(document.getElementById('map'), {
       center: pyrmont,
       zoom: 17,
@@ -41,8 +44,11 @@ function initMap() {
     var service = new google.maps.places.PlacesService(map);
 
     // Perform a nearby search.
-    service.nearbySearch({ location: pyrmont, radius: 500, type: ['campus building'] },
-    function(results, status, pagination) {
+    service.nearbySearch({ location: pyrmont, radius: 500, type: ['campus building'] }, function(
+      results,
+      status,
+      pagination
+    ) {
       if (status !== 'OK') return;
 
       createMarkers(results);
@@ -54,7 +60,7 @@ function initMap() {
 
     // Create the directions service
     directionsService = new google.maps.DirectionsService();
-    directionsDisplay = new google.maps.DirectionsRenderer();
+    directionsDisplay = new google.maps.DirectionsRenderer({ suppressMarkers: true });
     directionsDisplay.setMap(map);
   });
 }

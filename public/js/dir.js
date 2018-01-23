@@ -1,4 +1,4 @@
-var DEBUG = false;
+var directionsMarkers = [];
 
 function getNextClass(schedule) {
   var d = DEBUG ? new Date('Mon Jan 22 2018 08:30:23 GMT-0800 (PST)') : new Date();
@@ -31,7 +31,25 @@ function routeToBuilding(building) {
       travelMode: 'WALKING'
     };
     directionsService.route(request, function(result, status) {
+      for (var marker of directionsMarkers) {
+        marker.setMap(null);
+      }
+
       if (status == 'OK') {
+        var route = result.routes[0].legs[0];
+        directionsMarkers = [
+          new google.maps.Marker({
+            position: route.start_location,
+            map: map,
+            icon: '/img/pin_a.png'
+          }),
+          new google.maps.Marker({
+            position: route.end_location,
+            map: map,
+            icon: '/img/pin_b1.png'
+          })
+        ];
+
         directionsDisplay.setDirections(result);
       } else {
         alert(`Could not find route to building "${building}"`);
