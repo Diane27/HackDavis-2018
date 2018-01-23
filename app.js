@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const helmet = require('helmet');
-const expressEnforcesSsl = require('express-enforces-ssl');
+const yesHttps = require('yes-https');
 const path = require('path');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
@@ -12,9 +12,8 @@ const router = require('./routes');
 if (config.production) {
   // Force https
   app.use(logger('common'));
-  app.enable('trust proxy');
   app.use(helmet());
-  app.use(expressEnforcesSsl());
+  app.use(yesHttps());
 } else {
   app.use(logger('dev'));
 }
