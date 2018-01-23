@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const helmet = require('helmet');
+const expressEnforcesSsl = require('express-enforces-ssl');
 const path = require('path');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
@@ -7,13 +9,19 @@ const nunjucks = require('nunjucks');
 const config = require('./config.js');
 const router = require('./routes');
 
+if (config.production) {
+  // Force https
+  app.use(logger('common'));
+  app.enable('trust proxy');
+  app.use(helmet());
+  app.use(expressEnforcesSsl());
+} else {
+  app.use(logger('dev'));
+}
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/public')));
-
-if (!config.production) {
-  app.use(logger('dev'));
-}
 
 // Set "./views" as the views folder
 nunjucks.configure(path.join(__dirname, 'views'), {
