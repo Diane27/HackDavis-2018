@@ -9,7 +9,11 @@ fillForm.submit(function (event) {
     event.preventDefault();
     var schedule = fillFormToObj();
     console.log(schedule);
-    modifyClass(schedule);
+    if (fillFormContainer > 0) {
+        modifyClass(schedule); 
+    } else {
+        addClass(schedule);
+    }
 })
 
 function cancelEdit() {
@@ -17,8 +21,6 @@ function cancelEdit() {
 }
 
 function removeClass(targetId, day=1) {
-    // Set day to false
-    // if all days are false, delete entry
     var data = JSON.parse(window.localStorage.getItem('userData'));
     var classes = data.schedule;
 
@@ -52,22 +54,28 @@ function addClass(data) {
     data['id'] = (new Date()).getTime();
     userData.schedule.push(data);
     window.localStorage.setItem('userData', JSON.stringify(userData));
+    updateClassList();
+    fillFormContainer.attr('hidden', 'hidden');
 }
 
 function fillClassEditForm(id) {
-    var classData = JSON.parse(window.localStorage.getItem('userData')).schedule.find(section => section.id == id);
-
-    fillForm.find('[name="id"]').val(id);
-    fillForm.find('[name="name"]').val(classData.name);
-    fillForm.find('[name="building"]').val(classData.building);
-    fillForm.find('[name="startTime"]').val(classData['start-time']);
-    fillForm.find('[name="endTime"]').val(classData['end-time']);
-
-    for (var i = 0; i < classData.days.length; i++) {
-        fillForm.find('.classDayLabel input').eq(i).prop('checked', classData.days[i]);
+    if (id > 0) {
+        var classData = JSON.parse(window.localStorage.getItem('userData')).schedule.find(section => section.id == id);
+        
+            fillForm.find('[name="id"]').val(id);
+            fillForm.find('[name="name"]').val(classData.name);
+            fillForm.find('[name="building"]').val(classData.building);
+            fillForm.find('[name="startTime"]').val(classData['start-time']);
+            fillForm.find('[name="endTime"]').val(classData['end-time']);
+        
+            for (var i = 0; i < classData.days.length; i++) {
+                fillForm.find('.classDayLabel input').eq(i).prop('checked', classData.days[i]);
+            }
     }
+    
 
     fillFormContainer.removeAttr('hidden');
+    fillFormContainer.attr('class-id', id);
     $('#editClassContainerA').click();
 }
 
