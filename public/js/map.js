@@ -16,7 +16,7 @@ function showPosition(position) {
 // parameter when you first load the API. For example:
 // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-var DEBUG = true;
+var DEBUG = false;
 var map;
 var directionsService;
 var directionsDisplay;

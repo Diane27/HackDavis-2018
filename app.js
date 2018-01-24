@@ -11,9 +11,9 @@ const router = require('./routes');
 
 if (config.production) {
   // Force https
-  app.use(logger('common'));
-  app.use(helmet());
-  app.use(yesHttps());
+  // app.use(logger('common'));
+  // app.use(helmet());
+  // app.use(yesHttps());
 } else {
   app.use(logger('dev'));
 }
