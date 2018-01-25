@@ -9,7 +9,7 @@ fillForm.submit(function (event) {
     event.preventDefault();
     var schedule = fillFormToObj();
     console.log(schedule);
-    if (fillFormContainer > 0) {
+    if (fillFormContainer.attr('class-id') > 0) {
         modifyClass(schedule); 
     } else {
         addClass(schedule);
